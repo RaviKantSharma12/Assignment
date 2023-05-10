@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Day5
+{
+    // INDEXER----
+    // It is array of properties.
+    internal class person
+    {
+        int id;
+        string name;
+        public int PID//PID is Abtraction
+        {
+            get
+            {
+                return id;//id is private variable. it is encapsulation
+            }
+            set 
+            {
+                id = value;
+            }
+
+        }
+        public string Name // Name is Abtraction
+        {
+            get
+            {
+                return name; //name is private variable. it is encapsulation
+            }
+            set
+            {
+                name = value;
+            }
+
+        }
+
+    }
+    class personDetails
+    {
+        public static void Main()
+        {
+            person obj=new person();
+            obj.Name = "Ravi";
+            obj.PID = 10;
+
+            Console.WriteLine(obj.Name+" "+obj.PID);
+        }
+    }
+}

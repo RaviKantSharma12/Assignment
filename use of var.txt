@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dynamic
+{
+    internal class personDetails
+    {
+        string pname;
+        public static void Main()
+        {
+            var obj = new personDetails(); //var is a keword to do aliasing of class if class name is big
+            obj.pname = "Deepa";
+            Console.WriteLine(obj.pname);
+        }
+    }
+}
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dynamic
+{
+    internal class personDetails
+    {
+        string pname;
+
+        
+        public void changeName(string n)
+        {
+            pname = n;
+            var name = "Rajeev"; // var is a use at the place of string . we write it to replace string
+            name = "Vikash";
+            Console.WriteLine(name);
+           
+
+        }
+        public static void Main()
+        {
+            var obj = new personDetails(); //var is a keword to do aliasing of class if class name is big
+            obj.pname = "Deepak";
+
+            
+
+            Console.WriteLine(obj.pname);
+            obj.changeName("Deepak srivastav");
+            Console.WriteLine(obj.pname);
+        }
+    }
+}

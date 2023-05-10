@@ -1,0 +1,99 @@
+using System;
+//what is properties
+//properties is a mechanism to access private variables of class.
+//To access the private variable of a class,we have to apply get and set accessor
+
+//1. There two ways to access the private variable of a class   A. properties   B.function or method.
+//Achieved encapsulation(wrapper) via properties
+class person
+{
+     int ID;      //private 
+     string pname; //private
+
+      personDetails details= new personDetails();
+
+     int age;
+
+
+
+     public int PID
+     {
+        get
+        {
+            return ID;
+        }
+        set
+        {
+            ID=value;    //value is a keyword act as a temporary variable.
+        }
+     }
+
+      public string PNAME
+     {
+        get
+        {
+            return pname;
+        }
+
+        set
+        {
+            pname=value;    //value is a keyword
+        }
+     }
+
+     public int PAGE
+     {
+        get
+        {
+            return age;
+        }
+        set
+        {
+            age=value;    //value is a keyword act as a temporary variable.
+            if(age<20)
+            {
+              
+               details.NotFit();
+               
+            }
+            else
+            {
+                details.schedule();
+            }
+        }
+     }
+
+}
+class personDetails
+{
+     public void schedule()
+     {
+        Console.WriteLine("Wait for final call");
+     }
+     public void NotFit()
+     {
+          Console.WriteLine("criterta not match...Thx");
+     }
+
+    public void personInfo()
+    {
+      person obj=new person();
+      obj.PID=101;     //set
+      obj.PNAME="Deepak";   //set
+      obj.PAGE=21;
+    }
+
+}
+
+
+
+class startup
+{
+    public static void Main()
+    {
+       var pdetails=new personDetails();
+       pdetails.personInfo();
+
+
+    }
+}

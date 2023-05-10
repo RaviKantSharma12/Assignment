@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Day4
+{
+    // what is properties
+    // properties is a mechanism to access private var of class
+    // to access the private variable of class we have to aply get and set accessor
+    // 1. there two ways to access the private variable of a class 
+    //    a. properties b. function or method
+    //achieved encapsulation (wrapper) via properties
+     class person
+    {
+        int ID;  //private
+        string pname;  //private
+
+        public int PID
+        {
+            get
+            {
+                return ID; 
+            }
+            set
+            {
+                ID = value;   // value is a keyword in c# bydefault it is use for set
+            }
+        }
+        public string PNAME
+        {
+            get
+            {
+                return pname;
+            }
+            set
+            {
+                pname = value;   // value is a keyword act as a temporary variable in c# bydefault it is use for set
+            }
+        }
+    }
+    class persondetails
+    {
+        public void personeInfo()
+        {
+            person obj = new person();
+            obj.PID = 101;
+            Console.WriteLine(obj.PID); //get
+
+            obj.PNAME = "Ravi"; //set
+            Console.WriteLine(obj.PNAME);
+            
+        }
+    }
+    class staetup
+    {
+        public static void Main(string[] args) 
+        { 
+            var pdetails=new persondetails();
+            pdetails.personeInfo();
+        }
+    }
+}
