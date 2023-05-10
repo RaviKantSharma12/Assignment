@@ -27,13 +27,37 @@ namespace Palindrome
             }
             return true;
         }
+
+        static void palidnrome(string str1)
+        {
+            string str = "";
+            for(int i=0;i<str1.Length; i++)
+            {
+                char ch = str1[i];
+                str = ch + str;
+            }
+            if(str1==str)
+            {
+                Console.WriteLine("string is palindrome");
+            }
+            else
+            {
+                Console.WriteLine("string is not palindrome");
+            }
+
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Enter Name");
             string name= Console.ReadLine();
-            name.ToLower();
-            char[] name1= name.ToCharArray();
-            Console.WriteLine(isPalindrome(name1));
+             name.ToLower();
+            // char[] name1= name.ToCharArray();
+            // Console.WriteLine(isPalindrome(name1));
+            palidnrome(name);
+
+ 
+            }
         }
     }
 }
