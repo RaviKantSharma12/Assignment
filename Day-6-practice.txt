@@ -1,0 +1,44 @@
+using System;
+
+namespace Day6
+{
+    class Food
+    {
+        public string Foodtype;
+        public string Foodname;
+        public int Foodprice;
+    }
+    class Canteen
+    {
+        public Food FoodDetails()
+        {
+            Food obj = new Food();
+            Console.WriteLine("Enter number of Food type which you want.");
+            obj.Foodtype = Console.ReadLine();
+            Console.WriteLine("Enter Food Name.");
+            obj.Foodname = Console.ReadLine();
+                //Console.WriteLine("Enter Food Name.");
+            obj.Foodprice = 100;
+
+                return obj;
+
+
+        }
+    }
+    class CanteenOwner
+    {
+        public static void Main(string[] args)
+        {
+            Canteen obj = new Canteen();
+            Food temp = obj.FoodDetails();
+
+            Console.WriteLine("You Choosed The type of food is : " + temp.Foodtype);
+            Console.WriteLine("You Choosed The Name of food is : " + temp.Foodname);
+            Console.WriteLine("The price of food is : "+temp.Foodprice);
+
+
+
+        }
+
+    }
+}
