@@ -1,0 +1,89 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+namespace Day7
+{
+    class personDetails
+    {
+        ArrayList obj = new ArrayList();
+        public void Entry()
+        {
+            obj.Add("Ravi");
+            obj.Add("Mannu");
+            obj.Add(234);
+
+            foreach (var i in obj)
+            {
+                Console.WriteLine(i);
+            }
+        }
+        public static void Main()
+        {
+            personDetails obj = new personDetails();
+            obj.Entry();
+        }
+    }
+}
+--------------------------------------------------------------------
+using System;
+class Person<T>          // Class as generics
+{
+    public void PersonDetails(T temp)
+    {
+        Console.WriteLine(temp);
+    }
+    public void PersonName(T temp)
+    {
+        Console.WriteLine(temp);
+    }
+}
+class PersonInfo
+{
+    public static void Main()
+    {
+        Person<int> obj = new Person<int>();
+        obj.PersonDetails(100);
+        obj.PersonDetails(200);
+        
+
+        Person<string> obj1 = new Person<string>();
+        obj1.PersonDetails("Ravi Kant Sharma");
+
+        Person<bool> obj2 = new Person<bool>();
+        obj2.PersonDetails(true);
+    }
+}
+----------------------------------------------------------------------------
+using System;
+class Person
+{
+    public void Details<T>(T temp) //Method as generic 
+    {
+        Console.WriteLine(temp);
+    }
+    public void Name() //Method without generic
+    {
+        Console.WriteLine("Ravi");
+        Console.WriteLine(456);
+        Console.WriteLine(true);
+        Console.WriteLine(5674.343);
+
+    }
+
+}
+class PersonDetails
+{
+    public static void Main()
+    {
+        Person obj = new Person();
+        obj.Details<int>(500);
+        obj.Details<string>("Hello");
+        obj.Details<double>(25.25);
+        obj.Details<bool>(true);
+
+
+        obj.Name();
+
+        
+    }
+}

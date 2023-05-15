@@ -1,0 +1,132 @@
+using System;
+using System.Collections;
+
+  class personDetails
+  {
+    ArrayList obj=new ArrayList();
+      public void Entry()
+      {
+         obj.Add("deepak");
+         obj.Add(9000);                        //boxing
+
+         int  salary=Convert.ToInt32(obj[1]);   //unboxing ....(explicit conversion)
+         string name=Convert.ToString(obj[0]);
+         Console.WriteLine(salary+" "+name);
+      }
+
+      public static void Main()
+      {
+         personDetails obj=new personDetails();
+         obj.Entry();
+      }
+  }
+
+------------------------------------------------------------------------------------------------------
+Generics........
+
+
+using System;
+class personDetails<T>
+{
+    public void skills(T temp)
+    {
+       Console.WriteLine(temp);
+    }
+}
+
+class HR
+{
+    public static void Main()
+    {
+       
+
+
+          personDetails<string> obj1=new personDetails<string>();
+          obj1.skills("database");
+
+          personDetails<int> obj2=new personDetails<int>();
+          obj2.skills(5);
+
+
+
+    }
+}
+
+-------------------------------------------------------------------------------------------------
+Generic function----  
+
+
+using System;
+
+
+
+class home
+{
+    public void mother<T>(T temp)
+    {
+        Console.WriteLine(temp);
+    }
+}
+
+class child1
+{
+    public static void Main()
+    {
+         home obj=new home();
+         obj.mother<int>(2);
+         obj.mother<string>("poha");
+    }
+}
+
+-------------------------------------------------------------------------------------------------------
+
+using System;
+
+
+
+class home
+{
+    public void mother<T,P>(T temp, P name)
+    {
+        Console.WriteLine(temp+" "+name);
+    }
+}
+
+class child1
+{
+    public static void Main()
+    {
+         home obj=new home();
+         obj.mother<int,string>(2,"Poha");
+         obj.mother<string,double>("poha",56.56);
+    }
+}
+
+-------------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+
+class personDetails
+{
+    List<string> objList=new List<string>();
+    public void Entry()
+    {
+       objList.Add("deepti");
+       objList.Add("noida");
+
+
+       foreach(var ctr in objList)
+       {
+           Console.WriteLine(ctr);
+       }
+    }
+}
+
+class user
+{
+    public static void Main()
+    {
+       personDetails obj=new personDetails();
+       obj.Entry();
+    }
+}
