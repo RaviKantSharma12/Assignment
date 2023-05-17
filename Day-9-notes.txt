@@ -1,0 +1,78 @@
+using System;
+using SmallEmployeeApp.Models;
+
+namespace SmallEmployeeApp.Functionality
+{
+    public interface IEmployeeOperation
+    {
+         int CreateEmployee(Employee emp);    //Abstract+public by default
+         List<Employee> GetEmployeeList();
+    }
+}
+
+using System;
+using SmallEmployeeApp.Models;
+using SmallEmployeeApp.Service;
+using SmallEmployeeApp.Functionality;
+
+namespace SmallEmployeeApp.UI
+{
+    public class MainApp
+    {
+        public static void Main()
+        {
+           Employee obj=new Employee();
+           obj.EID=101;
+           obj.Ename="Deepti";
+           obj.Age=21;
+
+           IEmployeeOperation es=new EmployeeService();   //Encap
+           
+           es.CreateEmployee(obj);
+
+            Employee obj1=new Employee();
+            obj1.EID=102;
+            obj1.Ename="Deep";
+            obj1.Age=22;
+      
+            es.CreateEmployee(obj1);
+
+        List<Employee> objList=es.GetEmployeeList();
+        foreach(var data in objList)
+        {
+            Console.WriteLine(data.EID+" "+data.Ename+" "+data.Age);
+        }
+      }
+      
+    }
+}
+
+
+using System;
+using SmallEmployeeApp.Models;
+using SmallEmployeeApp.Functionality;
+
+
+namespace SmallEmployeeApp.Service
+{
+    public class EmployeeService:IEmployeeOperation
+    {
+
+        List<Employee> objList=new List<Employee>();
+          public int CreateEmployee(Employee emp)
+          {
+            objList.Add(emp);
+            return 1;
+          }
+
+          public List<Employee> GetEmployeeList()
+          {
+            return objList;
+          }
+
+          public int count()
+          {
+              return 1;
+          }
+    }
+}
